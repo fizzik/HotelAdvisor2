@@ -65,3 +65,45 @@ label{
     margin-top: 20px;
 
 }
+
+/*flash messages*/
+.flash_box {
+    position: fixed;
+    top: 0;
+    left: 33%;
+    width: 34%;
+    z-index: 500;
+}
+.flash_box .flash {
+    padding: 5px;
+    color: white;
+    text-align: center;
+}
+.flash_box .flash span {
+    float: left;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 0.8em;
+    padding-top: 0.1em;
+    height: 1.5em;
+    width: 1.6em;
+    color: #e8e8e8;
+}
+.flash_box .flash.success {
+    background-color: rgba(81, 163, 81, 0.8);
+}
+.flash_box .flash.success span {
+    background-color: #51a351;
+}
+.flash_box .flash.error {
+    background-color: rgba(189, 54, 47, 0.8);
+}
+.flash_box .flash.error span {
+    background-color: rgba(132, 51, 48, 0.8);
+}
+.flash_box .flash.notice {
+    background-color: #006699;
+}
+.flash_box .flash.notice span {
+    background-color: #006699;
+}

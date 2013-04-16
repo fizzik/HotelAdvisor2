@@ -1,2 +1,11 @@
-
+<div class="float_right">
+<% if signed_in? %>
+    <%= link_to "Sign up", signup_path %>
+    <%= link_to "Sign in", signin_path %>
+    <% else %>
+    <%= link_to "Profile", current_user %>
+    <%= link_to "Settings", '#' %>
+    <%= link_to "Sign out", signout_path, method: "delete" %>
+    <% end %>
+</div>
 <hr/>
