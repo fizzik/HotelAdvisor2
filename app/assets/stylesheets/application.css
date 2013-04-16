@@ -11,3 +11,57 @@
  *= require_self
  *= require_tree .
  */
+.cleaner { clear: both }
+.float_left { float: left }
+.float_right { float: right }
+.center { text-align: center;}
+.block {display: block;}
+.invisible {display: none;}
+*{
+    box-sizing: border-box;
+    moz-box-sizing: border-box;
+    webkit-box-sizing: border-box;
+    outline: none;
+}
+
+p, h1, h2, h3, h4, h5, h6, a {
+    margin: 0;
+}
+
+
+h1, h2, h3, h4, h5, h6{
+    font-weight: normal;
+}
+h1{
+    font-size: 1.5em;
+}
+html{
+    height: 100%;
+}
+body {
+    font-family: "verdana", Helvetica, Arial, sans-serif;
+    font-size: 0.85em;
+    cursor: default;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: white;
+    margin: 0;
+}
+
+label{
+    font-size: 0.8em;
+    font-family: "lucida grande", arial, sans-serif;
+    padding: 3px;
+    margin-top: 5px;
+    font-weight: bold;
+    color: rgba(68, 68 ,68);
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 40px;
+    border: solid 1px black;
+    margin-top: 20px;
+
+}
