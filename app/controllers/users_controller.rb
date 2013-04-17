@@ -6,7 +6,8 @@ class UsersController < ApplicationController
     unless @user = User.where(id: params[:id]).first
     redirect_to current_user
     flash[:error] = "Page not found!"
-      end
+    end
+    @hotels = @user.hotel.all
   end
 
   def new
@@ -42,13 +43,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  def signed_in_user
-    unless signed_in?
-      store_location
-      redirect_to signin_url, notice: "Please sign in."
-    end
-  end
 
   def if_user_current
     @user = User.find(params[:id])

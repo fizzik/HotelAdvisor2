@@ -1,6 +1,7 @@
 HotelAdvisor::Application.routes.draw do
 
-  resources :users
+  resources :users, :except => :index
+  resources :hotels, :except => :edit
   root :to => 'page#index',  :as => 'page'
 
   resources :sessions, only: [:new, :create, :destroy]

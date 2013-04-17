@@ -1,0 +1,6 @@
+
+<h3><%= @hotel.title %></h3>
+<%= image_tag @hotel.image_url.to_s, :size => '200x200' %>
+<h5>Price:</h5><p class="text-error"><%= sprintf("$%0.02f", @hotel.price) %></p>
+<h5>Breackfast:</h5><%= @hotel.breackfast  %>
+<h5>Description:</h5><%= @hotel.room_description %>
