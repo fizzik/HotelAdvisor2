@@ -1,6 +1,7 @@
 class Hotel < ActiveRecord::Base
   attr_accessible :breackfast, :price, :room_description, :title, :user_id, :image
   belongs_to :user
+  has_many :comment
 
   mount_uploader :image, ImageUploader
 

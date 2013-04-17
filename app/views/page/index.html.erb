@@ -7,7 +7,7 @@
        Added by: <%=link_to hotel.user.name, hotel.user %> <br/>
       Created: <%= (hotel.created_at.strftime('%F, %H:%M ')) %>
       <% if current_user?(hotel.user) %>  <br/>
-      <%= link_to "delete", hotel, method: :delete,
+      <%= link_to "Delete", hotel, method: :delete,
                   data: { confirm: "You sure?" } %>
               <% end %>
       <hr/>
