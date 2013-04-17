@@ -1,5 +1,4 @@
 HotelAdvisor::Application.routes.draw do
-  get "sessions/new"
 
   resources :users
   root :to => 'page#index',  :as => 'page'
