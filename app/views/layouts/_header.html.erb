@@ -1,6 +1,7 @@
 
 
 <div class="float_right">
+  <%= link_to "Home", page_path %>
 <% if signed_in? %>
       <%= link_to "Profile", current_user %>
       <%= link_to "Settings", edit_user_path(current_user) %>

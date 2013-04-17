@@ -1,0 +1,20 @@
+<h3>Create hotel</h3>
+<%= form_for @hotel, :html =>{:multipart => true} do |f| %>
+
+    <%= f.label :title  %>
+    <%= f.text_field :title %>
+
+    <%= f.label :room_description %>
+    <%= f.text_field :room_description %>
+
+    <%= f.label :price  %>
+    <%= f.text_field :price %>
+
+    <%= f.label :breackfast %>
+    <%= f.select :breackfast, Hotel::HOTEL_BREACKFAST, prompt: "Select please" %>
+
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+    <br/>
+    <%= f.submit "Create", class: "btn btn-primary" %>
+<% end %>

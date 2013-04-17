@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
 
   before do
-    @user = User.new(name: "Example User", email: "user@example.com")
+    @user = User.new(name: "Vitaleks", email: "vitaleks2012@i.ua")
   end
 
   subject { @user }
@@ -14,6 +14,7 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:hotels) }
 
   describe "Name is not present" do
     before { @user.name = " " }
@@ -26,7 +27,7 @@ describe User do
   end
 
   describe "Name is too long" do
-    before { @user.name = "a" * 20 }
+    before { @user.name = "a" * 21 }
     it { should_not be_valid }
   end
 
