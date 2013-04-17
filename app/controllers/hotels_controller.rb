@@ -8,6 +8,7 @@ class HotelsController < ApplicationController
     redirect_to current_user
     flash[:error] = "Page not found!"
   end
+  @comments = Comment.desc.last(5)
   end
 
   def new

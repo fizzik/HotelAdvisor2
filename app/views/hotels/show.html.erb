@@ -4,3 +4,6 @@
 <h5>Price:</h5><p class="text-error"><%= sprintf("$%0.02f", @hotel.price) %></p>
 <h5>Breackfast:</h5><%= @hotel.breackfast  %>
 <h5>Description:</h5><%= @hotel.room_description %>
+<hr/>
+<%= render 'shared/comments' %>
+<%= render 'shared/form_comment' %>

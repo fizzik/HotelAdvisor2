@@ -1,0 +1,13 @@
+<% @hotel.comment.desc.each do |comment| %>
+
+   <%=link_to comment.user.name, comment.user %>
+<p class="text-info">
+    <%= comment.content %>
+  <% if current_user?(comment.user) %>  <br/>
+      <%= link_to "delete", comment, method: :delete,
+                  data: { confirm: "You sure?" } %>
+  <% end %>
+</p>
+
+    <br/>
+<% end %>
