@@ -1,11 +1,5 @@
 class CommentsController < ApplicationController
 
-  def index
-   @comment = Comment.All
-  end
-
-
-
   def create
     @comment = Comment.new
     @comment.content = params[:content]

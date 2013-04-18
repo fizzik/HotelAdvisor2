@@ -1,0 +1,6 @@
+<% if signed_in? %>
+<div class="float_left">
+  <% @user = current_user %>
+  Hello, <%= @user.name %>
+</div>
+<% end %>

@@ -1,11 +1,11 @@
-<h3>Create hotel</h3>
+<h3>Edit hotel</h3>
 <%= form_for @hotel, :html =>{:multipart => true} do |f| %>
-    <p class="muted">Fields with * are required!</p>
-    <%= f.label :title, "*Title:" %>
+
+    <%= f.label :title  %>
     <%= f.text_field :title %>
 
     <%= f.label :room_description %>
-    <%= f.text_area :room_description, rows:4 %>
+    <%= f.text_field :room_description %>
 
     <%= f.label :price  %>
     <%= f.text_field :price %>
@@ -16,6 +16,7 @@
     <%= f.label :image %>
     <%= f.file_field :image %>
 
+
     <br/>
-    <%= f.submit "Create", class: "btn btn-primary" %>
+    <%= f.submit "Update Hotel", class: "btn btn-primary" %>
 <% end %>

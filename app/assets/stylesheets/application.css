@@ -17,11 +17,13 @@
 .center { text-align: center;}
 .block {display: block;}
 .invisible {display: none;}
+
+
 *{
     box-sizing: border-box;
     moz-box-sizing: border-box;
     webkit-box-sizing: border-box;
-    outline: none;
+
 }
 
 p, h1, h2, h3, h4, h5, h6, a {
@@ -48,14 +50,9 @@ body {
     background: white;
     margin: 0;
 }
-
-label{
-    font-size: 0.8em;
-    font-family: "lucida grande", arial, sans-serif;
-    padding: 3px;
-    margin-top: 5px;
-    font-weight: bold;
-    color: rgba(68, 68 ,68);
+.info_hotel{
+    margin-left: 155px;
+    margin-top: -150px;
 }
 .container{
     width: 80%;
@@ -65,7 +62,36 @@ label{
     margin-top: 20px;
 
 }
+.rating{
+    margin-left: 610px;
+}
+.content{
+    margin-left: 10px;
+    width: 750px;
+    height: 70px;
+    border-radius: 3px;
+    background-color: rgba(232, 232, 232, 0.30);
+}
+.delete_index{
+    margin-left: 800px;
+    margin-top: -30px;
+}
+.line{
+    width: 850px;
+    height: 20px;
+    background-color: rgba(232, 232, 232, 0.30);
+}
+.delete{
+    margin-left: 700px;
+    margin-top: -27px;
+}
+.user_name_left{
+    margin-right: -1500px;
+}
+.img{
+    border-radius: 2px;
 
+}
 /*flash messages*/
 .flash_box {
     position: fixed;

@@ -4,11 +4,10 @@ class HotelsController < ApplicationController
 
 
   def show
-  unless @hotel = Hotel.where(id: params[:id]).first
-    redirect_to current_user
-    flash[:error] = "Page not found!"
-  end
-  @comments = Comment.desc.last(5)
+    unless @hotel = Hotel.where(id: params[:id]).first
+      redirect_to current_user
+      flash[:error] = "Page not found!"
+    end
   end
 
   def new
@@ -16,19 +15,44 @@ class HotelsController < ApplicationController
   end
 
   def create
-  @hotel = current_user.hotel.build(params[:hotel])
-  if @hotel.save
-    flash[:success] = "hotel created!"
-    redirect_to @hotel
-  else
-    render 'new'
-    flash[:error] = "Error, try again!"
-   end
- end
+    @hotel = current_user.hotel.build(params[:hotel])
+    if @hotel.save
+      flash[:success] = "Hotel created!"
+      redirect_to @hotel
+    else
+      render 'new'
+      flash[:error] = "Error, try again!"
+    end
+  end
+
+  def edit
+    @hotel = Hotel.find(params[:id])
+  end
+
+  def update
+    @hotel = Hotel.find(params[:id])
+    if @hotel.update_attributes(params[:hotel])
+      flash[:success] = "Hotel updated"
+      redirect_to @hotel
+    else
+      render 'edit'
+      flash[:error] = 'Error, try again!'
+    end
+  end
+
 
   def destroy
     @hotel.destroy
     redirect_to :back
+  end
+
+  def rate
+    @hotel.rate(params[:rate].to_i)
+    respond_to do |format|
+      format.js {
+        render :text => @hotel.average_rating.to_s, :status => 200
+      }
+    end
   end
 
   private
