@@ -13,3 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function(){
+    $('.rating_radio').live("click", function(){
+        var hotel_id = $(this).attr('name').replace('rate_for_', '');
+        $.ajax({
+            url: '/hotels/' + hotel_id + '?rate=' + this.value,
+            dataType: 'text',
+            complete: function(data){
+                $('#stars').fadeOut(1000);
+
+            }
+        });
+    });
+});

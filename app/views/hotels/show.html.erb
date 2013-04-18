@@ -1,9 +1,36 @@
 
+<% if current_user?(@hotel.user) %>
+    <%= link_to 'Change hotel', edit_hotel_path %>
+<% end %>
 <h3><%= @hotel.title %></h3>
-<%= image_tag @hotel.image_url.to_s, :size => '200x200' %>
-<h5>Price:</h5><p class="text-error"><%= sprintf("$%0.02f", @hotel.price) %></p>
-<h5>Breackfast:</h5><%= @hotel.breackfast  %>
-<h5>Description:</h5><%= @hotel.room_description %>
+<%= image_tag @hotel.image_url.to_s, :size => '150x150', :class=>"img" %>
+
+<dl>
+  <dt>Price:</dt>
+  <dd><p class="text-error"><%= sprintf("$%0.02f", @hotel.price) %></p></dd>
+</dl>
+<dl>
+  <dt>Breackfast:</dt>
+  <dd><%= @hotel.breackfast  %></dd>
+</dl>
+<dl>
+  <dt>Description:</dt>
+  <dd><%= @hotel.room_description %></dd>
+</dl>
+<div class="rating">
+<% if !signed_in? or @hotel.voted_current_user? %>
+   Avarage: <%= @hotel.average_rating %>
+<% else %>
+    <div id="stars">
+
+      Add your vote: <% (1..5).each do |i| %>
+     <%= radio_button_tag "rate_for_#{@hotel.id}", i, false, :class => 'rating_radio' %><%= i %>
+
+        <% end %>
+    </div>
+<% end %>
+</div>
 <hr/>
+<h5>Add your comments:</h5>
 <%= render 'shared/comments' %>
 <%= render 'shared/form_comment' %>

@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "Welcome!"
-      redirect_back_or @user
+      redirect_back_or page_path
     else
       render 'new'
       flash[:error] = "Error, try again!"
