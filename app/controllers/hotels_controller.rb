@@ -47,10 +47,11 @@ class HotelsController < ApplicationController
   end
 
   def rate
-    @hotel.rate(params[:rate].to_i)
+    @hotel = Hotel.find(params[:id])
+    @hotel.rate(current_user, params[:vote].to_i)
     respond_to do |format|
       format.js {
-        render :text => @hotel.average_rating.to_s, :status => 200
+        render :text => @hotel.average_rating.to_s
       }
     end
   end

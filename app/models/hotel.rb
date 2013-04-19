@@ -4,6 +4,7 @@ class Hotel < ActiveRecord::Base
   belongs_to :user
   has_many :comment
   has_one :address
+  has_many :ratings
 
 
   mount_uploader :image, ImageUploader
@@ -15,8 +16,8 @@ class Hotel < ActiveRecord::Base
   validates :title, presence: true, length: { maximum: 140 }
   validates :price, :numericality => {greater_than_or_equal_to: 0.01}
 
-  def rate(stars)
-    Rating.create(:user_id => @current_user.id, :hotel_id => self.id, :rate => stars.to_i)
+  def rate(user, vote)
+    Rating.create(:user_id => user.id, :hotel_id => self.id, :rate => vote)
   end
 
   def average_rating
@@ -25,8 +26,8 @@ class Hotel < ActiveRecord::Base
     (ratings.sum{|r| r.rate})/(ratings.length).round(2)
   end
 
-  def voted_current_user?
-    Rating.where(:user_id => @current_user, :hotel_id => self.id).any?
+  def voted_user?(user)
+    Rating.where(:user_id => user, :hotel_id => self.id).any?
   end
 
 end

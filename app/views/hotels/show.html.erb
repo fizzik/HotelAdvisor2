@@ -18,17 +18,16 @@
   <dd><%= @hotel.room_description %></dd>
 </dl>
 <div class="rating">
-<% if !signed_in? or @hotel.voted_current_user? %>
-   Avarage: <%= @hotel.average_rating %>
-<% else %>
-    <div id="stars">
-
-      Add your vote: <% (1..5).each do |i| %>
-     <%= radio_button_tag "rate_for_#{@hotel.id}", i, false, :class => 'rating_radio' %><%= i %>
-
+<% if !signed_in? or @hotel.voted_user?(@current_user) %>
+  Avarage rating: <%= @hotel.average_rating %>
+  <% else %>
+      <div id="stars">
+        Add your vote:
+        <% (1..5).each do |i| %>
+            <%= radio_button_tag "rate_for_#{@hotel.id}", i, false, :class => 'rating_radio' %><%= i %>
         <% end %>
-    </div>
-<% end %>
+      </div>
+  <% end %>
 </div>
 <hr/>
 <h5>Add your comments:</h5>

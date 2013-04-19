@@ -1,23 +1,23 @@
+<% @hotels.each do |hotel| %>
 
-  <% @hotels.each do |hotel| %>
+    <strong> <%=link_to hotel.title, hotel %>  </strong> <br/>
 
-      <strong> <%=link_to hotel.title, hotel %>  </strong> <br/>
-
-      <%= image_tag hotel.image_url.to_s, :size => '80x80', :class => "img" %>
-      <div id="price"><p class="text-error">Price: <%= sprintf("$%0.02f", hotel.price) %></p></div>
-      <div class="line">
+    <%= image_tag hotel.image_url.to_s, :size => '80x80', :class => "img" %>
+    <div id="price"><p class="text-error">Price: <%= sprintf("$%0.02f", hotel.price) %></p></div>
+    <div class="line">
       <p>
-      Added: <%= (hotel.created_at.strftime('%F, %H:%M ')) %> |
+        Added: <%= (hotel.created_at.strftime('%F, %H:%M ')) %> |
         By: <%=link_to hotel.user.name, hotel.user %>
-        <div class="delete_index">
-      <% if current_user?(hotel.user) %>
-      <%= link_to "Delete", hotel, method: :delete,
-                  data: { confirm: "You sure?" } %>
-              <% end %>
-        </div>
-        </p>
+        Average rating: <%= hotel.average_rating %>
+      <div class="delete_index">
+        <% if current_user?(hotel.user) %>
+            <%= link_to "Delete", hotel, method: :delete,
+                        data: { confirm: "You sure?" } %>
+        <% end %>
       </div>
-      <hr/>
+      </p>
+    </div>
+    <hr/>
 <% end %>
 
 
