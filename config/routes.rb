@@ -1,7 +1,9 @@
 HotelAdvisor::Application.routes.draw do
 
   resources :users, :except => :index
-  resources :hotels
+  resources :hotels do
+    match 'rate', :via => :get, :as => :rate, :on => :member
+  end
   resources :comments
   resources :addresses
   root :to => 'page#index',  :as => 'page'
