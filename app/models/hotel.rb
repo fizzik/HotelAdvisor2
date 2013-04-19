@@ -1,9 +1,7 @@
 class Hotel < ActiveRecord::Base
-  include SessionsHelper
-  attr_accessible :breackfast, :price, :room_description, :title, :user_id, :image
+  attr_accessible :breackfast, :price, :room_description, :title, :user_id, :image, :country, :state, :city, :street
   belongs_to :user
   has_many :comment
-  has_one :address
   has_many :ratings
 
 
@@ -12,7 +10,7 @@ class Hotel < ActiveRecord::Base
   HOTEL_BREACKFAST = ["Yes", "No"]
 
   validates :user_id, presence: true
-  validates :room_description, length: { maximum: 5000 }
+  validates :room_description, length: { maximum: 10000 }
   validates :title, presence: true, length: { maximum: 140 }
   validates :price, :numericality => {greater_than_or_equal_to: 0.01}
 

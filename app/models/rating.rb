@@ -1,5 +1,4 @@
 class Rating < ActiveRecord::Base
-
   attr_accessible :rate, :user_id, :hotel_id
 
   belongs_to :hotel

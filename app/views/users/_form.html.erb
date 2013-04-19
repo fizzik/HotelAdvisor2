@@ -1,17 +1,18 @@
 
 <h3>Sign up</h3>
+<p class="muted">Fields with * are required!</p>
     <%= form_for(@user) do |f| %>
 
-        <%= f.label :name  %>
+        <%= f.label :name, "*Name: (maximum 20 symbol)"  %>
         <%= f.text_field :name %>
 
-        <%= f.label :email %>
+        <%= f.label :email, "*Email: (Example user@mail.com)" %>
         <%= f.text_field :email %>
 
-        <%= f.label :password %>
+        <%= f.label :password, "*Password: (minimum 6 symbol)"  %>
         <%= f.password_field :password %>
 
-        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.label :password_confirmation, "*Confirmation: (password again)" %>
         <%= f.password_field :password_confirmation %>
          <br/>
         <%= f.submit "Create my account", class: "btn btn-primary" %>

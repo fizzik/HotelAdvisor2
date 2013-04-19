@@ -63,7 +63,7 @@ body {
 
 }
 .rating{
-    margin-left: 610px;
+    margin-left: 10px;
 }
 .content{
     margin-left: 10px;
@@ -90,6 +90,11 @@ body {
 }
 .img{
     border-radius: 2px;
+
+}
+.address{
+    margin-left: 720px;
+    margin-top: -50px;
 
 }
 /*flash messages*/

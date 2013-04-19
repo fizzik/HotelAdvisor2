@@ -4,7 +4,6 @@
 <% end %>
 <h3><%= @hotel.title %></h3>
 <%= image_tag @hotel.image_url.to_s, :size => '150x150', :class=>"img" %>
-
 <dl>
   <dt>Price:</dt>
   <dd><p class="text-error"><%= sprintf("$%0.02f", @hotel.price) %></p></dd>
@@ -17,9 +16,11 @@
   <dt>Description:</dt>
   <dd><%= @hotel.room_description %></dd>
 </dl>
+
 <div class="rating">
-<% if !signed_in? or @hotel.voted_user?(@current_user) %>
-  Avarage rating: <%= @hotel.average_rating %>
+  <% if !signed_in? or @hotel.voted_user?(@current_user) %>
+      <p class="text-info"> You have already rated this hotel </p>
+      <p class="text-error"> Average rating: <%= @hotel.average_rating %> </p>
   <% else %>
       <div id="stars">
         Add your vote:
@@ -28,6 +29,16 @@
         <% end %>
       </div>
   <% end %>
+
+</div>
+<div class="address">
+  <address>
+    Hotel address:<br/>
+    <strong><%= @hotel.country %></strong><br>
+    <%= @hotel.city %><br>
+    <%= @hotel.state %><br>
+    <abbr title="Street"><%= @hotel.street %></abbr>
+  </address>
 </div>
 <hr/>
 <h5>Add your comments:</h5>
