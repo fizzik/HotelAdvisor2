@@ -2,6 +2,9 @@ class HotelsController < ApplicationController
   before_filter :signed_in_user,  only: [:create, :destroy, :new]
   before_filter :if_current_user_hotel,   only: :destroy
 
+  def index
+    redirect_to page_path
+  end
 
   def show
     unless @hotel = Hotel.where(id: params[:id]).first

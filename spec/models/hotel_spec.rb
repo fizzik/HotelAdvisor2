@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Hotel do
   before do
     @hotel = Hotel.new(user_id: "1", room_description: "Very nice room", title: "Hotel Plazza", breackfast: "Included",
-                        price: "200", image: 'photo.jpg')
+                        price: "200", image: 'photo.jpg', country: "Ukraine", city: "Uzhorod", state: "Transkarpation", street: "Shevchenka 20")
   end
 
 
@@ -15,6 +15,11 @@ describe Hotel do
   it { should respond_to(:title) }
   it { should respond_to(:price) }
   it { should respond_to(:image) }
+  it { should respond_to(:city) }
+  it { should respond_to(:country) }
+  it { should respond_to(:state) }
+  it { should respond_to(:street) }
+
 
   describe "User_id is not present" do
     before { @hotel.user_id = nil }
@@ -23,6 +28,11 @@ describe Hotel do
 
   describe "title is too long" do
     before { @hotel.title = "a" * 141 }
+    it { should_not be_valid }
+  end
+
+  describe "Room description is too long" do
+    before { @hotel.room_description = "a" * 10001 }
     it { should_not be_valid }
   end
 

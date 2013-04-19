@@ -31,7 +31,7 @@ module SessionsHelper
 
   def destroy
     sign_out
-    redirect_to root_url
+    redirect_to page_path
   end
 
   def sign_out

@@ -14,7 +14,6 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
-  it { should respond_to(:hotels) }
 
   describe "Name is not present" do
     before { @user.name = " " }
@@ -44,7 +43,7 @@ describe User do
 
   describe "Email format is valid" do
     it "should be valid" do
-      addresses = %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
+      addresses = %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp ]
       addresses.each do |valid_address|
         @user.email = valid_address
         @user.should be_valid

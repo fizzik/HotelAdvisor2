@@ -4,8 +4,8 @@ class UsersController < ApplicationController
 
   def show
     unless @user = User.where(id: params[:id]).first
-    redirect_to current_user
-    flash[:error] = "Page not found!"
+      redirect_to current_user
+      flash[:error] = "Page not found!"
     end
     @hotels = @user.hotel.all
   end
