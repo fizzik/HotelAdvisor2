@@ -2,7 +2,7 @@ class Hotel < ActiveRecord::Base
   attr_accessible :breackfast, :price, :room_description, :title, :user_id, :image, :country, :state, :city, :street
   belongs_to :user
   has_many :comment
-  has_many :ratings
+  has_many :ratings,  dependent: :destroy
 
 
   mount_uploader :image, ImageUploader

@@ -5,7 +5,6 @@ HotelAdvisor::Application.routes.draw do
     match 'rate', :via => :get, :as => :rate, :on => :member
   end
   resources :comments
-  resources :addresses
   root :to => 'page#index',  :as => 'page'
 
   resources :sessions, only: [:new, :create, :destroy]

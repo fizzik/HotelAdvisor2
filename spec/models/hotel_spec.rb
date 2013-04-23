@@ -20,11 +20,20 @@ describe Hotel do
   it { should respond_to(:state) }
   it { should respond_to(:street) }
 
+  #Testing association and validation(shoulda-matchers)
 
-  describe "User_id is not present" do
-    before { @hotel.user_id = nil }
-    it { should_not be_valid }
-  end
+  it { should belong_to(:user) }
+  it { should have_many(:comment) }
+  it { should have_many(:ratings) }
+
+  it { should validate_presence_of(:user_id) }
+  it { should validate_presence_of(:title) }
+  it { should validate_numericality_of(:price) }
+  it { should allow_value("3").for(:user_id) }
+  it { should_not allow_value(" ").for(:user_id) }
+  it { should allow_value("Hotel").for(:title) }
+  it { should_not allow_value(" ").for(:title) }
+  it { should allow_value("Description hotel").for(:room_description) }
 
   describe "title is too long" do
     before { @hotel.title = "a" * 141 }
@@ -36,14 +45,6 @@ describe Hotel do
     it { should_not be_valid }
   end
 
-  describe "title is not present" do
-    before { @hotel.title = " " }
-    it { should_not be_valid }
-  end
 
-  describe "Price is not present" do
-    before { @hotel.price = " " }
-    it { should_not be_valid }
-  end
 
 end
