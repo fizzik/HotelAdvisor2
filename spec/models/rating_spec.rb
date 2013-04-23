@@ -11,6 +11,10 @@ describe Rating do
   it { should respond_to(:user_id) }
   it { should respond_to(:hotel_id) }
 
+  #Testing association and validation (shoulda-matchers)
 
+  it { should belong_to(:hotel) }
+
+  it { should validate_uniqueness_of(:user_id).scoped_to(:hotel_id) }
 
 end

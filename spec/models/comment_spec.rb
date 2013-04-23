@@ -11,19 +11,19 @@ describe Comment do
   it { should respond_to(:user_id) }
   it { should respond_to(:hotel_id) }
 
-  describe "User_id is not present" do
-    before { @comment.user_id = nil }
-    it { should_not be_valid }
-  end
+  #Testing association and validation (shoulda-matchers)
 
-  describe "title is too long" do
-    before { @comment.content = "a" * 241 }
-    it { should_not be_valid }
-  end
+  it { should belong_to(:hotel) }
+  it { should belong_to(:user) }
 
-  describe "Hotel_id is not present" do
-    before { @comment.hotel_id = nil }
-    it { should_not be_valid }
-  end
+  it { should validate_presence_of(:user_id) }
+  it { should validate_presence_of(:hotel_id) }
+  it { should validate_presence_of(:content) }
+  it { should allow_value("Rails").for(:content) }
+  it { should_not allow_value(" ").for(:content)}
+  it { should allow_value("1").for(:user_id) }
+  it { should allow_value("3").for(:hotel_id) }
+  it { should_not allow_value(" ").for(:user_id)}
+  it { should_not allow_value(" ").for(:hotel_id) }
 
-end
+  end
