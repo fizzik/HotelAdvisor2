@@ -1,8 +1,11 @@
 class Hotel < ActiveRecord::Base
-  attr_accessible :breackfast, :price, :room_description, :title, :user_id, :image, :country, :state, :city, :street
+  attr_accessible :breackfast, :price, :room_description, :title, :user_id, :image, :address_attributes
   belongs_to :user
   has_many :comment
   has_many :ratings,  dependent: :destroy
+  has_one  :address,  dependent: :destroy
+
+  accepts_nested_attributes_for :address
 
 
   mount_uploader :image, ImageUploader
